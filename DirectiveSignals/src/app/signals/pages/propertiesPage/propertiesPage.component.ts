@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertiesPageComponent implements OnInit {
 
-  constructor() { }
+  onFieldUpdated(field: string,value:string){
+    console.log({field,value})
+  }
 
   ngOnInit() {
   }
