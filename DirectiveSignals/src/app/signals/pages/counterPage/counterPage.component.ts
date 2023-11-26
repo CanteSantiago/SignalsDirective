@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-counterPage',
   templateUrl: './counterPage.component.html',
   styleUrls: ['./counterPage.component.css']
 })
-export class CounterPageComponent implements OnInit {
+export class CounterPageComponent   {
 
-  constructor() { }
+  public counter = signal(10);
+  public squareCounter = computed( () => this.counter() * this.counter() );
 
-  ngOnInit() {
+
+  increaseBy( value: number ) {
+
+    this.counter.update( current => current + value );
+
   }
 
 }
